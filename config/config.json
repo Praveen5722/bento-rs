@@ -1,0 +1,21 @@
+{
+  "ociVersion": "1.0.2",
+  "hostname": "bento-container",
+  "root": { "path": "../rootfs", "readonly": false },
+  "process": {
+    "terminal": false,
+    "user": { "uid": 0, "gid": 0 },
+    "args": ["/bin/sh"],
+    "env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "TERM=xterm"],
+    "cwd": "/"
+  },
+  "linux": {
+    "namespaces": [
+      { "type": "pid" }, { "type": "mount" }, { "type": "uts" }, { "type": "ipc" }
+    ],
+    "resources": {
+      "memory": { "limit": 268435456 },
+      "pids": { "limit": 128 }
+    }
+  }
+}
